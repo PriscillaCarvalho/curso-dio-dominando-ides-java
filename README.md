@@ -88,6 +88,7 @@ java -version
 
 ```
 sudo update-alternatives --config java
+# /usr/libexec/java_home
 ```
 
 ​	<strong>4.2</strong> Copie o caminho que aparecerá no terminal, no meu caso:
