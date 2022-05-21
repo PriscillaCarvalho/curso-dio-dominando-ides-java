@@ -13,7 +13,8 @@
 🔹 E seguiremos até o final do curso explicando de uma forma leve e objetiva sobre umas das IDEs mais conhecidas para desenvolvimento Java: Eclipse IDE e IntelliJ IDEA IDE <br>
 </p>    
 <p align="center"> <em> ⚠️ Lembrando que o <strong>foco do curso são as IDEs</strong> e não a linguaguem Java. Ok? ⚠️ </em></p>
-🦉 Todas as instruções com o indicador de coruja são as etapas da instalação compatíveis para usuário macOS que adicionei ás instruções da professora.<br><p>
+<p>
+🦉 </strong><em>Todas as instruções com o indicador de coruja são as etapas da instalação compatíveis para usuário macOS que adicionei ás instruções da professora.</strong></em><p>
 
 <h2>
 🛑 Pré-requistos
@@ -60,81 +61,75 @@
 
 <h3>🔺 Instalação OpenJDK</h3>
 
-<em><strong>O OpenJDK (Kit de Desenvolvimento Java Aberto)</strong> é uma  implementação gratuita e de código aberto da linguagem de programação  Java.  A implementação está licenciada sob a GNU General Public License  (GPL) com uma exceção de vinculação. <strong>JDK = JRE + JVM</strong></em>
+<em><strong> O OpenJDK (Kit de Desenvolvimento Java Aberto)</strong> é uma  implementação gratuita e de código aberto da linguagem de programação  Java.  A implementação está licenciada sob a GNU General Public License  (GPL) com uma exceção de vinculação. <strong>JDK = JRE + JVM</strong></em>
 
 🔸 <strong>1.</strong> Abra o terminal e vamos verificar se temos o Java instalado:
-
 ```
 java -version
 ```
-
-🔸 <strong>2.</strong> Para instalar o openJDK-11, digite no terminal:
-<em>A versão mais atual LTS é do Java 11, que terá seu suporte  estendido até Setembro de 2022. Este tipo de suporte iniciou no Java 8  que será mantido até 2023.</em>
-
+<br>
+🔸 <strong>2.</strong> <em> A versão mais atual LTS é do Java 11, que terá seu suporte  estendido até Setembro de 2022. Este tipo de suporte iniciou no Java 8  que será mantido até 2023.</em> Para instalar o openJDK-11, digite no terminal:
 ```
 sudo apt-get install openjdk-11-jdk
 ```
 
-🦉 <strong>2.</strong> No macOS o equivalente para a instalação do jdk que queremos será o 'openjdk@11'. A instalação será feita pela linha de comando usando o gerenciador de pacotes open source Homebrew (brew). 
-
-<em> Primeiramente digite o comando a seguir para retornar em seu terminal as versões do jdk disponíveis para serem instaladas através brew.
+🦉 <strong>2.</strong> No macOS o equivalente para a instalação do jdk que queremos será o 'openjdk@11'. A instalação será feita pela linha de comando usando o gerenciador de pacotes open source Homebrew <em>(brew)</em>.<p>
+Primeiramente digite o comando a seguir para retornar em seu terminal as versões do jdk disponíveis para serem instaladas através brew.</em>
 
 ```
 brew search opejdk
 ```
-	
-🦉 <strong>2.</strong> No macOS: Para instalar o 'openjdk@11', digite no terminal:: 
+
+🦉 <strong>2.</strong> No macOS: Para instalar o 'openjdk@11', digite no terminal:
 ```
 brew install openjdk@11
-```	
+```
 
-🔸 <strong>3.</strong> Confirme se realmente foi instalado com sucesso:
+<br>
+🔸 <strong>3.</strong> Confirme se realmente foi instalado com sucesso:</strong></em>
 
 ```
 java -version
 ```
 
+<br>
 🔸<strong>4.</strong> Vamos configurar o ambiente JAVA_HOME:
 
 ​	<strong>4.1</strong> Verificar o caminho da instalação do Java:
 
 ```
 sudo update-alternatives --config java
-```	
-	
-🦉	 <strong>4.1</strong> No macOS: Verificar o caminho da instalação do Java:
+```
+
+🦉	<strong>4.1</strong> No macOS: Verificar o caminho da instalação do Java:
 
 ```
 brew info openjdk@11
 ```
-	
+
 ​	<strong>4.2</strong> Copie o caminho que aparecerá no terminal, no meu caso:
 
 ```
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 ```
-<em>
-<em>	
-/* VERIFICAR ESTE TRECHO... */
+<br><br>
+- (VERIFICAR ESTE TRECHO...)
 	
-🦉 	<strong>4.2</strong> No macOS: Leia a documentação e encontreo caminho da instalação que aparecerá similar ao exemplo: 
+🦉 	<strong>4.2</strong> No macOS: Leia a documentação e encontre o caminho da instalação que aparecerá similar ao exemplo: 
 
-<em>"==> Caveats
-<em>For the system Java wrappers to find this JDK, symlink it with
-<em> sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk " 
+>>> <p><code>==> Caveats </p>
+>>> For the system Java wrappers to find this JDK, symlink it with </p>
+>>>   sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk "</code>
 	
-	<em> Copie o caminho, no meu caso:
-	
+Copie o caminho, no meu caso:
+
 ```
 /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 ```
-	
-/* ...ATÉ AQUI */ 
-<em>
-<em>
-	
-	
-​	<strong>4.3</strong> Vamos editar o arquivo .bashrc:
+- (...ATÉ AQUI.)
+<br><br><br>
+
+​	<strong>4.3</strong> Vamos editar o arquivo .bashrc: 
 
 ```
 sudo gedit ~/.bashrc
@@ -147,9 +142,7 @@ code ~/.zshrc
 ```
 	
 ​	<strong>4.4</strong> Copie o código abaixo e cole no final do arquivo .bashrc. 
-
 ​	<em>IMPORTANTE: cuidado para não alterar nada no arquivo além de apenas colar no final do mesmo o que vou te disponibilizar a seguir. </em>
-
 ​	<em>JAVA_HOME = aqui você coloca o caminho do tópico 4.2, tirando o /bin/java</em>
 
 ```
@@ -167,7 +160,7 @@ JAVA_HOME=/usr/local/opt/openjdk@11/
 export JAVA_HOME
 export PATH=$PATH:$JAVA_HOME
 ```
-	
+
 ​	<strong>4.5</strong> Salve o arquivo
 
 ​	<strong>4.6</strong> Vamos conferir se a alteração ficou salva:
@@ -181,28 +174,27 @@ cat ~/.bashrc
 ```
 cat ~/.zhrc
 ```
-	
-🔸<strong>5.</strong>  Feche o terminal e abra novamente
+<br>	
+🔸<strong>5.</strong> Feche o terminal e abra novamente
 
 🦉<strong>5.</strong> No macOS: Para rodar as ultimas alterações feitas no .zshrc sem ter que fechar o terminal, execute:
 	
 ```
 source .zshrc
 ```
-
+<br>
 🔸<strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
 
 ```
 java --version
 ```
-	
-///	
-	
-🦉<strong>Nota adicional:</strong> No macOS: Após todo o processo de instalação realizado, para verificar o caminho da instalação do Java digite: 
-	
+<br>------------------------------------------------------------------------------------------------------------------------------------------
+🦉 ● Nota adicional: *No macOS: Após todo o processo de instalação realizado, para verificar o caminho da instalação do Java digite:* 
+
 ```
 echo $JAVA_HOME
 ```
+------------------------------------------------------------------------------------------------------------------------------------------<br>
 
 <p align="right"><em>Créditos: <a href="https://www.youtube.com/watch?v=jARiy3DZdwg">DevSuperior</a></em></p>
 
