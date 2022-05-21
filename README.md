@@ -76,6 +76,18 @@ java -version
 sudo apt-get install openjdk-11-jdk
 ```
 
+🦉 <strong>2.</strong> No macOS você pode seguir com este comando da seguinte maneira: 
+<em> O primeiro comando irá retornar em seu terminal as versões do jdk disponíveis para serem instaladas através brew.
+
+```
+brew search opejdk
+```
+	
+🦉 <strong>2.</strong> No macOS: O jdk que queremos instalar é o 'openjdk@11'. Para essa instalação o código de comando será: 
+```
+brew install openjdk@11
+```
+
 🔸 <strong>3.</strong> Confirme se realmente foi instalado com sucesso:
 
 ```
@@ -88,15 +100,23 @@ java -version
 
 ```
 sudo update-alternatives --config java
-# /usr/libexec/java_home
-```
-
+```	
 ​	<strong>4.2</strong> Copie o caminho que aparecerá no terminal, no meu caso:
 
 ```
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+	
+🦉	 <strong>4.1</strong> No macOS: Para verificar o caminho da instalação do Java: 
 ```
-
+echo $JAVA_HOME
+```
+	
+```
+🦉 	<strong>4.2</strong> No macOS: Copie o caminho que aparecerá em seu terminal, no meu caso:
+```
+/usr/local/opt/openjdk@11/
+```
+	
 ​	<strong>4.3</strong> Vamos editar o arquivo .bashrc:
 
 ```
