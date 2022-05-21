@@ -13,7 +13,7 @@
 🔹 E seguiremos até o final do curso explicando de uma forma leve e objetiva sobre umas das IDEs mais conhecidas para desenvolvimento Java: Eclipse IDE e IntelliJ IDEA IDE <br>
 </p>    
 <p align="center"> <em> ⚠️ Lembrando que o <strong>foco do curso são as IDEs</strong> e não a linguaguem Java. Ok? ⚠️ </em></p>
-<p>
+<br>
 🦉 </strong><em>Todas as instruções com o indicador de coruja são as etapas da instalação compatíveis para usuário macOS que adicionei ás instruções da professora.</strong></em><p>
 
 <h2>
@@ -25,7 +25,6 @@
 
 - [x] Conta no GitHub
 
-  
 
 <h2> 📚 Ementa</h2>
 
@@ -67,7 +66,9 @@
 ```
 java -version
 ```
+
 <br>
+
 🔸 <strong>2.</strong> <em> A versão mais atual LTS é do Java 11, que terá seu suporte  estendido até Setembro de 2022. Este tipo de suporte iniciou no Java 8  que será mantido até 2023.</em> Para instalar o openJDK-11, digite no terminal:
 ```
 sudo apt-get install openjdk-11-jdk
@@ -86,13 +87,14 @@ brew install openjdk@11
 ```
 
 <br>
-🔸 <strong>3.</strong> Confirme se realmente foi instalado com sucesso:</strong></em>
 
+🔸 <strong>3.</strong> Confirme se realmente foi instalado com sucesso:</strong></em>
 ```
 java -version
 ```
 
 <br>
+
 🔸<strong>4.</strong> Vamos configurar o ambiente JAVA_HOME:
 
 ​	<strong>4.1</strong> Verificar o caminho da instalação do Java:
@@ -112,7 +114,9 @@ brew info openjdk@11
 ```
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 ```
+
 <br><br>
+
 - (VERIFICAR ESTE TRECHO...)
 	
 🦉 	<strong>4.2</strong> No macOS: Leia a documentação e encontre o caminho da instalação que aparecerá similar ao exemplo: 
@@ -127,16 +131,15 @@ Copie o caminho, no meu caso:
 /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 ```
 - (...ATÉ AQUI.)
+
 <br><br><br>
 
 ​	<strong>4.3</strong> Vamos editar o arquivo .bashrc: 
-
 ```
 sudo gedit ~/.bashrc
 ```
-	
-🦉	<strong>4.3</strong> No macOS: O equivalente ao arquivo .bashrc será '.zshrc'. Portanto vamos editar o arquivo .zshrc usando:
-	
+
+🦉	<strong>4.3</strong> No macOS: O equivalente ao arquivo .bashrc será '.zshrc'. Portanto vamos editar o arquivo .zshrc usando:	
 ```
 code ~/.zshrc 
 ```
@@ -144,17 +147,15 @@ code ~/.zshrc
 ​	<strong>4.4</strong> Copie o código abaixo e cole no final do arquivo .bashrc. 
 ​	<em>IMPORTANTE: cuidado para não alterar nada no arquivo além de apenas colar no final do mesmo o que vou te disponibilizar a seguir. </em>
 ​	<em>JAVA_HOME = aqui você coloca o caminho do tópico 4.2, tirando o /bin/java</em>
-
 ```
 JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export JAVA_HOME
 export PATH=$PATH:$JAVA_HOME
 ```
-	
+
 🦉	<strong>4.4</strong> No macOS: Copie o código abaixo e cole no final do arquivo '.zshrc'. 
 🦉	<em> Cuidado para não alterar nada no arquivo além de apenas colar no final do mesmo o que vou te disponibilizar a seguir. </em>
-🦉	<em> JAVA_HOME = aqui você coloca o caminho de onde o 'openjdk@11' foi instalado (tópico 4.2), excluindo o trecho: 'libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk' </em>
-
+🦉	<em> JAVA_HOME = aqui você coloca o caminho de onde o 'openjdk@11' foi instalado (tópico 4.2), excluindo o trecho: 'libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk'. Estamos assim criando um código para configurar e acessar posteriormente o nosso JDK no terminal, atribuindo o caminho á variável JAVA_HOME e adicinando-o ao PATH. </em>
 ```
 JAVA_HOME=/usr/local/opt/openjdk@11/
 export JAVA_HOME
@@ -164,33 +165,33 @@ export PATH=$PATH:$JAVA_HOME
 ​	<strong>4.5</strong> Salve o arquivo
 
 ​	<strong>4.6</strong> Vamos conferir se a alteração ficou salva:
-
 ```
 cat ~/.bashrc
 ```
 
 🦉	<strong>4.6</strong> No macOS: Vamos conferir se a alteração ficou salva:
-
 ```
 cat ~/.zhrc
 ```
+
 <br>	
+
 🔸<strong>5.</strong> Feche o terminal e abra novamente
 
-🦉<strong>5.</strong> No macOS: Para rodar as ultimas alterações feitas no .zshrc sem ter que fechar o terminal, execute:
-	
+🦉<strong>5.</strong> No macOS: Para rodar as ultimas alterações feitas no .zshrc sem ter que fechar o terminal, execute:	
 ```
 source .zshrc
 ```
-<br>
-🔸<strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
 
+<br>
+
+🔸<strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
 ```
 java --version
 ```
-<br>------------------------------------------------------------------------------------------------------------------------------------------
-🦉 ● Nota adicional: *No macOS: Após todo o processo de instalação realizado, para verificar o caminho da instalação do Java digite:* 
 
+<br>------------------------------------------------------------------------------------------------------------------------------------------
+🦉 ● Nota adicional: *No macOS: Após todo o processo de instalação realizado, para verificar o caminho do Java (openjdk@11) digite:* 
 ```
 echo $JAVA_HOME
 ```
