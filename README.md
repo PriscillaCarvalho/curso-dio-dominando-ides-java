@@ -105,14 +105,15 @@ sudo update-alternatives --config java
 
 ```
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+```
 	
 🦉	 <strong>4.1</strong> No macOS: Para verificar o caminho da instalação do Java: 
 ```
 echo $JAVA_HOME
 ```
 	
-```
 🦉 	<strong>4.2</strong> No macOS: Copie o caminho que aparecerá em seu terminal, no meu caso:
+	
 ```
 /usr/local/opt/openjdk@11/
 ```
