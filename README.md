@@ -14,7 +14,9 @@
 </p>    
 <p align="center"> <em> ⚠️ Lembrando que o <strong>foco do curso são as IDEs</strong> e não a linguaguem Java. Ok? ⚠️ </em></p>
 <br>
-🦉 </strong><em>Todas as instruções com o indicador de coruja são as etapas da instalação compatíveis para usuário macOS que adicionei ás instruções da professora.</strong></em><p>
+🦉 </strong><em>Todas as instruções com o indicador de coruja são as etapas da instalação compatíveis para usuário macOS que adicionei ás instruções da professora.</strong></em><br>
+🦉 Neste momento as anotações e instruções paralelas do macOS estão sendo adicionadas ao mesmo projeto para fins de aprendizagem, e comparação do processo de instrução das aulas em relação ao que foi realizado em minha máquina.<br>
+🦉 Futuramente, a fim de refinar meu processo de documentação, raciocínio e arquitetura da informação o projeto será revisado, e desmenbrado por tipo sistemas operacionais, de modo que as instruções estejam mais claras e objetivas possíveis para cada qual.</p>
 
 <h2>
 🛑 Pré-requistos
@@ -56,8 +58,7 @@
 <br><br>
 
 
-<h2><strong> 🐧 LINUX</h2></strong>
-
+<h2><strong> 🐧 LINUX  //  💻 macOS </h2></strong> 
 <h3>🔺 Instalação OpenJDK</h3>
 
 <em><strong> O OpenJDK (Kit de Desenvolvimento Java Aberto)</strong> é uma  implementação gratuita e de código aberto da linguagem de programação  Java.  A implementação está licenciada sob a GNU General Public License  (GPL) com uma exceção de vinculação. <strong>JDK = JRE + JVM</strong></em>
@@ -66,6 +67,8 @@
 ```
 java -version
 ```
+
+🦉 <strong>1.</strong> No macOS: Abra o terminal e vamos verificar se temos o Java instalado:
 
 <br>
 
@@ -76,12 +79,13 @@ sudo apt-get install openjdk-11-jdk
 
 🦉 <strong>2.</strong> No macOS o equivalente para a instalação do jdk que queremos será o 'openjdk@11'. A instalação será feita pela linha de comando usando o gerenciador de pacotes open source Homebrew <em>(brew)</em>.<p>
 Primeiramente digite o comando a seguir para retornar em seu terminal as versões do jdk disponíveis para serem instaladas através brew.</em>
-
 ```
 brew search opejdk
 ```
 
-🦉 <strong>2.</strong> No macOS: Para instalar o 'openjdk@11', digite no terminal:
+<br>
+
+🦉 <strong>2.1</strong> No macOS: Para instalar o 'openjdk@11', digite no terminal:
 ```
 brew install openjdk@11
 ```
@@ -93,32 +97,35 @@ brew install openjdk@11
 java -version
 ```
 
+🦉 <strong>3.</strong> No macOS: Confirme se realmente foi instalado com sucesso:</strong></em>
+
 <br>
 
-🔸<strong>4.</strong> Vamos configurar o ambiente JAVA_HOME:
+🔸 <strong>4.</strong> Vamos configurar o ambiente JAVA_HOME:
+
+🦉 <strong>4.</strong> No macOS: Vamos configurar o ambiente JAVA_HOME:
+
+<br> 
 
 ​	<strong>4.1</strong> Verificar o caminho da instalação do Java:
-
 ```
 sudo update-alternatives --config java
 ```
 
 🦉	<strong>4.1</strong> No macOS: Verificar o caminho da instalação do Java:
-
 ```
 brew info openjdk@11
 ```
 
-​	<strong>4.2</strong> Copie o caminho que aparecerá no terminal, no meu caso:
+<br>
 
+​	<strong>4.2</strong> Copie o caminho que aparecerá no terminal, no meu caso:
 ```
 /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 ```
 
-<br><br>
+- *(VERIFICAR ESTE TRECHO...)* 
 
-- (VERIFICAR ESTE TRECHO...)
-	
 🦉 	<strong>4.2</strong> No macOS: Leia a documentação e encontre o caminho da instalação que aparecerá similar ao exemplo: 
 
 >>> <p><code>==> Caveats </p>
@@ -126,13 +133,13 @@ brew info openjdk@11
 >>>   sudo ln -sfn /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk "</code>
 	
 Copie o caminho, no meu caso:
-
 ```
 /usr/local/opt/openjdk@11/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk
 ```
-- (...ATÉ AQUI.)
 
-<br><br><br>
+- *(...ATÉ AQUI.)*
+
+<br>
 
 ​	<strong>4.3</strong> Vamos editar o arquivo .bashrc: 
 ```
@@ -143,9 +150,13 @@ sudo gedit ~/.bashrc
 ```
 code ~/.zshrc 
 ```
-	
+
+<br> 
+
 ​	<strong>4.4</strong> Copie o código abaixo e cole no final do arquivo .bashrc. 
+
 ​	<em>IMPORTANTE: cuidado para não alterar nada no arquivo além de apenas colar no final do mesmo o que vou te disponibilizar a seguir. </em>
+
 ​	<em>JAVA_HOME = aqui você coloca o caminho do tópico 4.2, tirando o /bin/java</em>
 ```
 JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
@@ -153,8 +164,10 @@ export JAVA_HOME
 export PATH=$PATH:$JAVA_HOME
 ```
 
-🦉	<strong>4.4</strong> No macOS: Copie o código abaixo e cole no final do arquivo '.zshrc'. 
+🦉	<strong>4.4</strong> No macOS: Copie o código abaixo e cole no final do arquivo '.zshrc'.
+
 🦉	<em> Cuidado para não alterar nada no arquivo além de apenas colar no final do mesmo o que vou te disponibilizar a seguir. </em>
+
 🦉	<em> JAVA_HOME = aqui você coloca o caminho de onde o 'openjdk@11' foi instalado (tópico 4.2), excluindo o trecho: 'libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk-11.jdk'. Estamos assim criando um código para configurar e acessar posteriormente o nosso JDK no terminal, atribuindo o caminho á variável JAVA_HOME e adicinando-o ao PATH. </em>
 ```
 JAVA_HOME=/usr/local/opt/openjdk@11/
@@ -162,7 +175,13 @@ export JAVA_HOME
 export PATH=$PATH:$JAVA_HOME
 ```
 
+<br>
+
 ​	<strong>4.5</strong> Salve o arquivo
+
+🦉	<strong>4.5</strong> No macOS: Salve o arquivo
+
+<br>
 
 ​	<strong>4.6</strong> Vamos conferir se a alteração ficou salva:
 ```
@@ -176,18 +195,23 @@ cat ~/.zhrc
 
 <br>	
 
-🔸<strong>5.</strong> Feche o terminal e abra novamente
+🔸 <strong>5.</strong> Feche o terminal e abra novamente
 
-🦉<strong>5.</strong> No macOS: Para rodar as ultimas alterações feitas no .zshrc sem ter que fechar o terminal, execute:	
+🦉 <strong>5.</strong> No macOS: Para rodar as ultimas alterações feitas no .zshrc sem ter que fechar o terminal, execute:	
 ```
 source .zshrc
 ```
 
 <br>
 
-🔸<strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
+🔸 <strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
 ```
-java --version
+java -version
+```
+
+🦉 <strong>6.</strong> Vamos conferir mais uma vez se o Java está instalado na nossa máquina:
+```
+java -version
 ```
 
 <br>------------------------------------------------------------------------------------------------------------------------------------------
@@ -199,82 +223,143 @@ echo $JAVA_HOME
 
 <p align="right"><em>Créditos: <a href="https://www.youtube.com/watch?v=jARiy3DZdwg">DevSuperior</a></em></p>
 
+<br><br><br>
+
+<h3>🔺 Instalação IntelliJ IDEA Community </h3>
+
+🔸 <strong>1.</strong> Entre no site ofical do <a href="https://www.jetbrains.com/idea/download/#section=windows"><strong>INTELLIJ</strong></a>
+
+🦉 <strong>1.</strong> Entre no site ofical do <a href="https://www.jetbrains.com/idea/download/#section=windows"><strong>INTELLIJ</strong></a>
+<br> 
+
+🔸 <strong>2.</strong> Escolha a opção Community e faça o download
+	
+🦉 <strong>2.</strong> No macOS: Escolha a opção de sistema operacional 'macOS' e em seguida a opção 'Community' e clique em Download
+
+<br> 
+
+🔸 <strong>3.</strong> Descompacte a pasta e vamos para o terminal
+
+🦉 <strong>3.</strong> No macOS: Ao terminar o download, clique no arquivo para abri-lo e fazer a instalação.
+
 <br>
+
+🔸 <strong>4.</strong> Abra o terminal (Ctrl + Alt +  t) e entre no diretório que você descompactou 
+<em>No meu caso, na pasta Downloads Ideal</em></p>
+```
+cd Downloads/IdealC
+```
+
+🦉 <strong>4.</strong> No macOS: Aparecerá uma janela com o o aquivo “ideaIC-2022.1.1.dmg” e sua pasta de Aplicativos
+	<em>Arraste o arquivo "IntelliJ IDEA CE.app" até a pasta "Aplications" e solte.</em>
+	<em>Aguarde até que a barra de transferencia esteja completa e encerrada. Então feche a janela.</em>
+	<em>Pronto, você completou sua instalação.</em>
+
+<br>
+
+🔸 <strong>5.</strong> Entre na pasta bin
+```
+cd bin
+```
+
+🦉 <strong>5.</strong> No macOS: Não se aplica (N/A)
+
+<br>
+
+🔸 <strong>6.</strong> Execute o arquivo de instalação idea.sh
+```
+./idea.sh
+```
+
+🦉 <strong>6.</strong> No macOS: Não se aplica (N/A)
+
+<br><br><br>
 
 <h3>🔺 Instalação Eclipse </h3>
 
 🔸 <strong>1.</strong> Entre no site oficial do Eclipse Foundation e faça o <strong><a href="https://www.eclipse.org/downloads/download.php?file=/oomph/epp/2021-06/R/eclipse-inst-jre-linux64.tar.gz">DOWNLOAD</a></strong>
 <em>O site já identifica o sistema operacional.</em>
 
+🦉 <strong>1.</strong> No macOS: Entre no site oficial do Eclipse Foundation na opção de pacotes 'Eclipse IDE for Enterprise Java and Web Developers', clique na opção "macOS x86_64" e faça o <strong><a href=https://www.eclipse.org/downloads/packages/release/2022-03/r/eclipse-ide-enterprise-java-and-web-developers>DOWNLOAD</a></strong>
+
+<br>
+
 🔸 <strong>2.</strong> Descompacte a pasta
+
+🦉 <strong>2.</strong> No macOS: Aparecerá uma janela com o o aquivo “eclipse-jee-2022-03-R-macosx-cocoa-x86_64” e sua pasta de Aplicativos
+	<em>Arraste o arquivo "Eclipse.app" até a pasta "Aplications" e solte.</em>
+	<em>Aguarde até que a barra de transferencia esteja completa e encerrada. Então feche a janela.</em>
+	<em>Pronto, você completou sua instalação.</em>
+
+<br>
 
 🔸 <strong>3.</strong> Procure o arquivo eclipse-inst e execute
 
+🦉 <strong>3.</strong> No macOS: Feche a aba do site oficial do Eclipse Foundation. Não vamos mais precisar dele
+
+<br>
+
 🔸 <strong>4.</strong> Escolha segunda a opção: Eclipse IDE for Enterprise Java and Web Developers
+
+🦉 <strong>4.</strong> No macOS: Não se aplica (N/A)
+
+<br>
 
 🔸 <strong>5.</strong> Clique no folder da primeira opção e selecione o JDK que instalamos na nossa máquina.
 
+🦉 <strong>5.</strong> No macOS: Abra a IDE Eclipse, que está armazenada na pasta "Aplications' em sua máquina.
+	
+<br>
+
 🔸 <strong>6.</strong> Mantenha as opções "create start menu entry" e "create desktop shortcut"
 
+🦉 <strong>6.</strong> Ao abrir pela primeira vez o aquivo, uma janela aparecerá solicitando que você escolha o caminho do diretório para salvar o conteúdo desta IDE.<p>
+<em>O Eclipse IDE usa o diretório do espaço de trabalho para armazenar suas preferências e artefatos de desenvolvimento. 
+<em>Você pode escolher o diretório de acordo com sua própria organização. No meu caso, por exemplo, este é o caminho: "/Users/priscilla/eclipse-workspace".</em> 
+
+<br>
+	
 🔸 <strong>7.</strong> Install
+	
+🦉 <strong>7.</strong> No macOS: Não se aplica (N/A)
+	
+<br>
 
 🔸 <strong>8.</strong> Accept now
 
+🦉 <strong>8.</strong> No macOS: Não se aplica (N/A)
+	
+<br>
+
 🔸 <strong>9.</strong> Launch
+	
+🦉 <strong>9.</strong> No macOS: Após escolher o caminho, clique em 'Launch'
+	
+<br>
 
 🔸 <strong>10.</strong> Pronto, intalação concluída!
+	
+🦉 <strong>10.</strong> No macOS: Pronto, concluído. Agora é só usar sua Eclipse IDE</p>
 
-<br>
+<br><br><br>
 
 <h3>🔺 Configurando o ícone do Eclipse IDE no Dock </h3>
 
-<br>
-
-<h3>🔺 Instalação IntelliJ IDEA Community </h3>
-
-🔸 <strong>1.</strong> Entre no site ofical do <a href="https://www.jetbrains.com/idea/download/#section=windows"><strong>INTELLIJ</strong></a>
-
-🔸 <strong>2.</strong> Escolha a opção Community e faça o download 
-
-🔸 <strong>3.</strong> Descompacte a pasta e vamos para o terminal
-
-🔸 <strong>4.</strong> Abra o terminal (Ctrl + Alt +  t) e entre no diretório que você descompactou 
-<em>No meu caso, na pasta Downloads Ideal</em>
-
-```
-cd Downloads/IdealC
-```
-
-🔸 <strong>5.</strong> Entre na pasta bin
-
-```
-cd bin
-```
-
-🔸 <strong>6.</strong> Execute o arquivo de instalação idea.sh
-
-```
-./idea.sh
-```
-
-<br>
+<br><br><br>
 
 <h3>🔺 Instalação Git </h3>
 
 🔸 <strong>1.</strong> Abra o terminal (Ctrl + Alt + t) e vamos verificar se temos o git instalado:
-
 ```
 git --version
 ```
 
 🔸 <strong>2.</strong> Execute o comando:
-
 ```
 sudo apt-get install git-all
 ```
 
 🔸<strong>3.</strong> Confirme novamente se o git realmente está instalado:
-
 ```
 git --version
 ```
@@ -282,27 +367,24 @@ git --version
 🔸 <strong>4.</strong> Vamos começar as configurações iniciais:
 
 ​	<strong>4.1</strong> Cofigurar o nome de usuário
-
 ```
 git config --global user.name "Seu nome"
 ```
 
 ​	<strong>4.2</strong> Configurar o endereço de e-mail:
 ​	<em>É de suma importância que o ENDEREÇO DE E-MAIL SEJA O MESMO DO GITHUB afim de evitar conflitos!</em>
-
 ```
 git config --global user.email seuemail@email.br
 ```
 
 ​	<strong>4.3</strong> Vamos conferir a lista de configurações:
-
 ```
 git config --list
 ```
 
 🔸 <strong>5.</strong> Pronto, git instalado e configurado com sucesso!
 
-<br><br>
+<br><br><br>
 
 <h2><strong>🪟 WINDOWS</h2></strong>
 
@@ -354,7 +436,7 @@ java -version
 
 <p align="right"><em>Créditos: <a href="https://www.youtube.com/watch?v=laC0fiI-IOM">DevSuperior</a></em></p>
 
-<br>
+<br><
 
 <h3>🔺 Instalação Eclipse </h3>
 
